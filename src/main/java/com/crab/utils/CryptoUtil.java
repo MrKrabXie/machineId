@@ -1,5 +1,7 @@
 package com.crab.utils;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -10,6 +12,7 @@ import java.nio.file.Files;
 import java.security.Key;
 import java.util.Base64;
 
+@Slf4j
 public class CryptoUtil {
 
     private static final String ALGORITHM = "AES";
@@ -38,7 +41,10 @@ public class CryptoUtil {
 
     // Convert SecretKey to Base64 string
     public static String encodeKey(SecretKey key) {
-        return Base64.getEncoder().encodeToString(key.getEncoded());
+        log.info("key:{}", key.toString());
+        String s = Base64.getEncoder().encodeToString(key.getEncoded());
+        log.info("encodeKey:{}", s);
+        return s;
     }
 
     // Decode Base64 string to SecretKey

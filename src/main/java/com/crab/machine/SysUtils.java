@@ -392,13 +392,13 @@ public abstract class SysUtils {
 
     public static String getMachineSlash4() {
         String macAddress = getMacAddress();
-        log.info("macAddress: {}", macAddress);
+        System.out.println("macAddress: {}"+ macAddress);
         String cpuSerialNumber = getCPUSerialNumber();
-        log.info("cpuSerialNumber: {}", cpuSerialNumber);
+        System.out.println("cpuSerialNumber: {}"+ cpuSerialNumber);
         String hardDiskSerialNumber = getHardDiskSerialNumber();
-        log.info("hardDiskSerialNumber: {}", hardDiskSerialNumber);
+        System.out.println("hardDiskSerialNumber: {}"+ hardDiskSerialNumber);
         String s = EncryptUtils.md5Slash((macAddress + cpuSerialNumber + hardDiskSerialNumber).toCharArray());
-        log.info("s: {}", s);
+        System.out.println("s:"+ s);
         return s;
     }
 
